@@ -58,7 +58,12 @@ contract Degen is ERC20 {
         require(balanceOf(msg.sender) >= _Redeem, "Insufficient balance");
         _burn(msg.sender, _Redeem);
     }
-   
+
+    function redeemtoken(address from, uint256 _token) public {
+    require(balanceOf(from) >= _token, "Insufficient balance");
+    _burn(from, _token);
+    }
+    
     function checkTokenBalance(address _account) public view returns (uint) {
         return balanceOf(_account);
     }
